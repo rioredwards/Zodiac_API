@@ -3,10 +3,10 @@ const app = require('../lib/app');
 const { zodiacs } = require('../lib/zodiacs-data.js');
 
 describe('zodiacs routes', () => {
-  it('home route should return hello world', async () => {
-    const resp = await request(app).get('/');
-    expect(resp.text).toEqual('hello world!');
-  });
+  // it('home route should return hello world', async () => {
+  //   const resp = await request(app).get('/');
+  //   expect(resp.text).toEqual('hello world!');
+  // });
 
   it('/zodiacs should return a list of zodiacs', async () => {
     const res = await request(app).get('/zodiacs');
