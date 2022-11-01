@@ -16,15 +16,20 @@ describe('zodiacs routes', () => {
     expect(res.body).toEqual(expected);
   });
 
-  it('/horoscopes/:sign should return zodiac detail', async () => {
-    const res = await request(app).get('/horoscopes/aquarius');
+  it('/zodiacs/:id should return zodiac detail', async () => {
+    const res = await request(app).get('/zodiac/1');
     const aquarius = {
       id: '1',
       name: 'aquarius',
       dates: 'Jan 21 - Feb 19',
       symbol: 'Water Bearer',
-      horoscope: 'You are going to eat chocolate cake'
     };
     expect(res.body).toEqual(aquarius);
+  });
+
+  it('/horoscopes/:sign should return horoscope detail', async () => {
+    const res = await request(app).get('/horoscopes/aquarius');
+    const horoscope = 'You are going to eat chocolate cake';
+    expect(res.body).toEqual(horoscope);
   });
 });
