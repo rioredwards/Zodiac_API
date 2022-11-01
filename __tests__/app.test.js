@@ -17,7 +17,7 @@ describe('zodiacs routes', () => {
   });
 
   it('/zodiacs/:id should return zodiac detail', async () => {
-    const res = await request(app).get('/zodiac/1');
+    const res = await request(app).get('/zodiacs/1');
     const aquarius = {
       id: '1',
       name: 'aquarius',
