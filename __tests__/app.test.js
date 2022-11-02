@@ -27,10 +27,20 @@ describe('zodiacs routes', () => {
     expect(res.body).toEqual(aquarius);
   });
 
-  it('/horoscopes/:sign should return horoscope detail', async () => {
-    const res = await request(app).get('/horoscopes/aquarius');
-    // eslint-disable-next-line
-    const horoscope = `This is one of those days when you just can't wait for someone to stop talking so you can say something, Aquarius. It's likely you won't even wait. Don't be surprised if friction results from such strongly held opposing views. People could blow things out of proportion, since everyone is convinced that they are right. The interesting thing about this situation is that it could result in a productive time.`;
+  it('/search?date=mm/dd/yyyy should return zodiac sign associated with birth-date', async () => {
+    const res = await request(app).get('/search/?birthDate=10/13/1997');
+    const sign = 'libra';
+    expect(res.body).toEqual(sign);
+  });
+
+  it('/horoscopes/?horoscope=sign should return horoscope detail', async () => {
+    const res = await request(app).get('/horoscopes/?horoscope=aquarius');
+    const horoscope = {
+      sign: 'aquarius',
+      date: '2022-11-01',
+      // eslint-disable-next-line
+      horoscope: `You may have a hard time appreciating the little things this morning, dear Aquarius, as the moon forms a harsh square with the nodes of fate. Certain lifestyle luxuries, personal success, and status may not taste as sweet as you'd hoped, causing you to close off emotionally. Don't be hard on yourself if you're feeling disenchanted with the world, but try to reach for that which brings you joy. The vibe will be charged within your domestic affairs when Luna squares off with Uranus this afternoon, so you'll want to be on guard for finicky appliances or temperamental roommates.`,
+    };
     expect(res.body).toEqual(horoscope);
   });
 });

@@ -66,13 +66,13 @@
         </tr>
         <tr>
           <td>
-            <pre>/horoscopes?horoscope=taurus</pre>
+            <pre>/horoscopes?horoscope=sign</pre>
           </td>
           <td>GET</td>
           <td>Gets a horoscope for given Zodiac sign</td>
           <td>
             <form id="horoscopes-form" action="/horoscopes" method="get">
-              <select name="horoscope" id="horoscopes-select">
+              <select name="horoscope" id="horoscopes-select" required>
                 <option value="aquarius">Aquarius</option>
                 <option value="libra">Libra</option>
                 <option value="virgo">Virgo</option>
@@ -86,6 +86,23 @@
                 <option value="cancer">Cancer</option>
                 <option value="aries">Aries</option>
               </select>
+              <br />
+              <input type="submit" value="Submit" />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <pre>/search?birthDate=10/13/1997</pre>
+          </td>
+          <td>GET</td>
+          <td>Gets the Zodiac sign for given birth-date</td>
+          <td>
+            <form id="birthDate-form" action="/search" method="get">
+              <label for="birth-date">DOB</label>
+              <br />
+              <input name="birthDate" type="date" required />
+              <br />
               <input type="submit" value="Submit" />
             </form>
             <!-- <a href="/horoscopes/libra">Get Horoscope: Libra</a> -->
