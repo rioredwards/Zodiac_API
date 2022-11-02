@@ -28,7 +28,7 @@ describe('zodiacs routes', () => {
   });
 
   it('/search?date=mm/dd/yyyy should return zodiac sign associated with birth-date', async () => {
-    const res = await request(app).get('/search/?birthDate=10/13/1997');
+    const res = await request(app).get('/search?birthDate=1997-10-13');
     const sign = 'libra';
     expect(res.body).toEqual(sign);
   });
