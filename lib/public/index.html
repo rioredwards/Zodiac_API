@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        font-size: 18px;
+      }
+      body {
+        display: grid;
+      }
+      table {
+        min-width: 50rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      th {
+        font-weight: bold;
+        font-size: 1.3rem;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid grey;
+        text-align: center;
+      }
+    </style>
+    <title>Zodiac API</title>
+  </head>
+  <body>
+    <br />
+    <h1 style="text-align: center">Zodiac API</h1>
+    <br />
+
+    <table>
+      <thead>
+        <tr>
+          <th>Route</th>
+          <th>Method</th>
+          <th>Description</th>
+          <th>Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <pre>/zodiacs</pre>
+          </td>
+          <td>GET</td>
+          <td>Gets a list of zodiac signs</td>
+          <td>
+            <a href="/zodiacs">List Zodiacs</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <pre>/zodiacs/:id</pre>
+          </td>
+          <td>GET</td>
+          <td>Gets a single Zodiac sign's details</td>
+          <td>
+            <a href="/zodiacs/1">Get Zodiac: Aquarius</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <pre>/horoscopes?horoscope=sign</pre>
+          </td>
+          <td>GET</td>
+          <td>Gets a horoscope for given Zodiac sign</td>
+          <td>
+            <form id="horoscopes-form" action="/horoscopes" method="get">
+              <select name="horoscope" id="horoscopes-select" required>
+                <option value="aquarius">Aquarius</option>
+                <option value="libra">Libra</option>
+                <option value="virgo">Virgo</option>
+                <option value="taurus">Taurus</option>
+                <option value="scorpio">Scorpio</option>
+                <option value="sagittarius">Sagittarius</option>
+                <option value="pisces">Pisces</option>
+                <option value="leo">Leo</option>
+                <option value="gemini">Gemini</option>
+                <option value="capricorn">Capricorn</option>
+                <option value="cancer">Cancer</option>
+                <option value="aries">Aries</option>
+              </select>
+              <br />
+              <input type="submit" value="Submit" />
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <pre>/search?birthDate=10/13/1997</pre>
+          </td>
+          <td>GET</td>
+          <td>Gets the Zodiac sign for given birth-date</td>
+          <td>
+            <form id="birthDate-form" action="/search" method="get">
+              <label for="birth-date">DOB</label>
+              <br />
+              <input name="birthDate" type="date" required />
+              <br />
+              <input type="submit" value="Submit" />
+            </form>
+            <!-- <a href="/horoscopes/libra">Get Horoscope: Libra</a> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
